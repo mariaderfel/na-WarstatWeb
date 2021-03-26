@@ -21,13 +21,13 @@ public class CarController {
         this.carService = carService;
     }
 
-    @GetMapping("/create_new_car")
+    @GetMapping("create-new-car")
     public String addNewCar(Model model) {
         model.addAttribute("newCar", new CarDTO());
         return "createNewCar";
     }
 
-    @PostMapping("add_new_car")
+    @PostMapping("save-new-car")
     public String addNewCar(@Valid @ModelAttribute("newCar") CarDTO newCar, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             return "createNewCar";
@@ -36,7 +36,12 @@ public class CarController {
             carService.saveCar(newCar);
             return "saveNewCar";
         }
+    }
 
+    @GetMapping("cars-for-repair")
+    public String showCarsForRepair(Model model){
+        model.addAttribute("carDTO", carService.showCarsForRepair());
+        return "carForRepair";
     }
 
 }

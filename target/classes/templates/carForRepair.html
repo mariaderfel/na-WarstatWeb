@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{../style.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" th:href="@{../static/style.css}">
+
+    <title>Add new car</title>
+</head>
+<body>
+<br/>
+
+<div style="position:absolute; left:10%; top:10%; width: 700px; ">
+
+    <h1 style="color: whitesmoke;">NA WARSTAT</h1>
+    <p style="color: whitesmoke;">Car for repair:</p>
+
+    <table class="table table-dark table-hover" >
+        <thead class="table-dark">
+        <tr>
+            <th scope="col">registration number</th>
+            <th scope="col">name</th>
+            <th scope="col">color</th>
+            <th scope="col">production year</th>
+            <th scope="col">fix order date</th>
+            <th scope="col">fix - do it</th>
+        </tr>
+        </thead>
+        <tbody th:each="car : ${carDTO}">
+        <tr>
+            <td class="table-active" style="color: whitesmoke;" th:text="${car.getRegistrationNumber()}"></td>
+            <td class="table-active" style="color: whitesmoke;" th:text="${car.getName()}"></td>
+            <td class="table-active" style="color: whitesmoke;" th:bgcolor="${car.getColor()}"></td>
+            <td class="table-active" style="color: whitesmoke;" th:text="${car.getProductionYear()}"></td>
+            <td class="table-active" style="color: whitesmoke;" th:text="${car.getFixOrderDate()}"></td>
+            <td class="table-active" style="color: whitesmoke;">
+                <button type="submit" class="btn btn-light">fix it</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br/>
+    <a href="/" style="color: whitesmoke;">back </a>
+
+</div>
+
+</body>
+</html>

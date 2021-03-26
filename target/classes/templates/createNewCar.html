@@ -18,7 +18,7 @@
     <h1 style="color: whitesmoke;">NA WARSTAT</h1>
     <p style="color: whitesmoke;">Add new car:</p>
 
-    <form action="/add_new_car" method="post" th:object="${newCar}" th:action="@{/add_new_car}">
+    <form action="/add_new_car" method="post" th:object="${newCar}" th:action="@{/save-new-car}">
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingInput" placeholder="registration_number" th:field="*{registrationNumber}">
             <label for="floatingInput">registration number </label>
