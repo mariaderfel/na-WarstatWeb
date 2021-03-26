@@ -31,6 +31,7 @@ public class CarService {
         carRepository.save(exampleCar);
 
         Car car = carDTOToCar.apply(carDTO);
+        car.setFixOrderDate(LocalDate.now());
         carRepository.save(car);
 
     }

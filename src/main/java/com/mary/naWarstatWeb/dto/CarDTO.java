@@ -8,7 +8,7 @@ public class CarDTO {
     private Long id;
     @NotBlank(message = "registration number is mandatory")
     private String registrationNumber;
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "name is mandatory")
     private String name;
     @NotBlank(message = "color is mandatory")
     private String color;
