@@ -1,27 +1,29 @@
-package com.mary.naWarstatWeb.entity;
+package com.mary.naWarstatWeb.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
-@Entity
-public class Car {
-    @Id
-    @GeneratedValue
+public class CarDTO {
+
     private Long id;
+    @NotBlank(message = "registration number is mandatory")
     private String registrationNumber;
+    @NotBlank(message = "Name is mandatory")
     private String name;
+    @NotBlank(message = "color is mandatory")
     private String color;
+    @NotNull(message = "production year is mandatory")
+    @Min(1999)
+    @Max(2021)
     private int productionYear;
     private LocalDate fixOrderDate;
     private boolean isFixed;
     private LocalDate fixedDate;
 
-    public Car() {
+    public CarDTO() {
     }
 
-    public Car(Long id, String registrationNumber, String name, String color, int productionYear, LocalDate fixOrderDate, boolean isFixed, LocalDate fixedDate) {
+    public CarDTO(Long id, @NotBlank(message = "registration number is mandatory") String registrationNumber, @NotBlank(message = "Name is mandatory") String name, @NotBlank(message = "color is mandatory") String color, @NotNull(message = "production year is mandatory") @Min(1999) @Max(2021) int productionYear, LocalDate fixOrderDate, boolean isFixed, LocalDate fixedDate) {
         this.id = id;
         this.registrationNumber = registrationNumber;
         this.name = name;
@@ -30,24 +32,6 @@ public class Car {
         this.fixOrderDate = fixOrderDate;
         this.isFixed = isFixed;
         this.fixedDate = fixedDate;
-    }
-
-    public Car(String registrationNumber, String name, String color, int productionYear, LocalDate fixOrderDate, boolean isFixed, LocalDate fixedDate) {
-        this.registrationNumber = registrationNumber;
-        this.name = name;
-        this.color = color;
-        this.productionYear = productionYear;
-        this.fixOrderDate = fixOrderDate;
-        this.isFixed = isFixed;
-        this.fixedDate = fixedDate;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getRegistrationNumber() {

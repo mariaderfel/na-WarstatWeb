@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{../style.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" th:href="@{../static/style.css}">
+
+    <title>Add new car</title>
+</head>
+<body>
+<br/>
+
+<div style="position:absolute; left:10%; top:10%; width: 400px; height: 150px; ">
+
+    <h1 style="color: whitesmoke;">NA WARSTAT</h1>
+    <p style="color: whitesmoke;">Add new car:</p>
+
+    <form action="/add_new_car" method="post" th:object="${newCar}" th:action="@{/add_new_car}">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="registration_number" th:field="*{registrationNumber}">
+            <label for="floatingInput">registration number </label>
+            <span class="errorClass" style="color: orange" th:if="${#fields.hasErrors('registrationNumber')}" th:errors="*{registrationNumber}"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="car make and model" placeholder="car make and model" th:field="*{name}">
+            <label for="floatingInput">car make and model </label>
+            <span class="errorClass" style="color: orange"  th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="color" class="form-control" id="color" placeholder="color" th:field="*{color}">
+            <label for="floatingInput">color - is mandatory</label>
+            <span class="errorClass" style="color: orange"  th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="number" min="1999" class="form-control" id="production year" placeholder="production year" th:field="*{productionYear}">
+            <label for="floatingInput">production year - is mandatory</label>
+            <span class="errorClass" style="color: orange"  th:if="${#fields.hasErrors('productionYear')}" th:errors="*{productionYear}"></span>
+        </div>
+        <button type="submit" class="btn btn-light">Add car</button>
+    </form>
+
+    <br/>
+    <a href="/" style="color: whitesmoke;">back </a>
+
+</div>
+
+</body>
+</html>
