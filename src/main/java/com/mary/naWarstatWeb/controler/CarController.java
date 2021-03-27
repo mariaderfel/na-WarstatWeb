@@ -44,4 +44,11 @@ public class CarController {
         return "carForRepair";
     }
 
+    @GetMapping("fix")
+    public String fix(Long id){
+
+        System.out.println(" !!!!!!!!!  ID  ++++++++++ " + id);
+
+        return "carForRepair";
+    }
 }

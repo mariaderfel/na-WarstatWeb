@@ -32,7 +32,7 @@ public class CarService {
     }
 
     public List<CarDTO> showCarsForRepair(){
-        List<Car> carForRepair = carRepository.findByIsFixedIsFalse();
+        List<Car> carForRepair = carRepository.findByIsFixedIsFalseOrderByFixOrderDate();
         return carForRepair.stream()
                 .map(car -> carToCarDTO.apply(car))
                 .collect(Collectors.toList());

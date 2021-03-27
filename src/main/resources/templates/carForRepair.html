@@ -37,7 +37,11 @@
             <td class="table-active" style="color: whitesmoke;" th:text="${car.getProductionYear()}"></td>
             <td class="table-active" style="color: whitesmoke;" th:text="${car.getFixOrderDate()}"></td>
             <td class="table-active" style="color: whitesmoke;">
-                <button type="submit" class="btn btn-light">fix it</button>
+
+                <form method="get" action="/fix" th:action="fix">
+                    <button type="submit" class="btn btn-light"  th:name="id" th:value="${car.getId()}">fix it</button>
+                </form>
+
             </td>
         </tr>
         </tbody>
