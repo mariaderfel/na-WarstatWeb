@@ -37,4 +37,15 @@ public class CarService {
                 .map(car -> carToCarDTO.apply(car))
                 .collect(Collectors.toList());
     }
+
+    public List<CarDTO> showRepairedCars(){
+        List<Car> repairedCars = carRepository.findByIsFixedIsTrueOrderByFixedDateDesc();
+        return  repairedCars.stream()
+                .map(car ->carToCarDTO.apply(car))
+                .collect(Collectors.toList());
+    }
+
+    public void fixCar(Long id){
+        carRepository.updateIsFixed(id);
+    }
 }

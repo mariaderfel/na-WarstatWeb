@@ -1,8 +1,8 @@
-insert into car values (1, 'blue', DATE '2021-03-24', null, false, 'fiat', 2002, 'EL 123BD');
+insert into car values (1, 'blue', DATE '2021-03-24', null, DATE'2021-03-25', 'fiat', 2002, 'EL 123BD');
 insert into car values (2, 'white', DATE'2021-03-22', null, false, 'ford', 2004, 'EL 567ZX');
 insert into car values (3, 'green', DATE'2021-02-24', null, false, 'mazda', 2007, 'EL 98CBD');
-insert into car values (4, 'black', DATE'2021-03-14', null, false, 'peugeot', 2020, 'EL 655DS');
-insert into car values (5, 'yellow',DATE '2021-03-28', null, false, 'renou', 2019, 'EL 236GI');
+insert into car values (4, 'black', DATE'2021-03-14', null, DATE'2021-03-16', 'peugeot', 2020, 'EL 655DS');
+insert into car values (5, 'yellow',DATE '2021-03-28', null, true, 'renault', 2019, 'EL 236GI');
 insert into car values (6, 'silver',DATE '2021-03-05', null, false, 'wv', 2015, 'EL 745PL');
 insert into car values (7, 'black', DATE'2021-03-21', null, false, 'nissan', 2002, 'EL 234VF');
-insert into car values (8, 'red', DATE'2021-03-25', null, false, 'citroen', 2013, 'EL 234YG');
+insert into car values (8, 'red', DATE'2021-03-25', null, true, 'citroen', 2013, 'EL 234YG');

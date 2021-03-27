@@ -45,10 +45,15 @@ public class CarController {
     }
 
     @GetMapping("fix")
-    public String fix(Long id){
-
-        System.out.println(" !!!!!!!!!  ID  ++++++++++ " + id);
-
+    public String fix(Long id, Model model){
+        carService.fixCar(id);
+        model.addAttribute("carDTO", carService.showCarsForRepair());
         return "carForRepair";
+    }
+
+    @GetMapping("repaired-cars")
+    public String showRepairedCars(Model model){
+        model.addAttribute("carDTO", carService.showRepairedCars());
+        return "repairedCars";
     }
 }
