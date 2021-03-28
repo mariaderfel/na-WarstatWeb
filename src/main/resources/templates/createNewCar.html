@@ -13,12 +13,20 @@
 <body>
 <br/>
 
-<div style="position:absolute; left:10%; top:10%; width: 400px; height: 150px; ">
+<div style="position:absolute; left:10%; top:10%; width: 700px; height: 150px; ">
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="nav-link active link-light" aria-current="page" href="/">cars for repair</a>
+        <a class="nav-link active link-light" href="create-new-car">add new car</a>
+        <a class="nav-link active link-light" href="get-registration-number">repair car</a>
+        <a class="nav-link active link-light" href="repaired-cars">repaired cars</a>
+    </nav>
+    <br>
 
     <h1 style="color: whitesmoke;">NA WARSTAT</h1>
     <p style="color: whitesmoke;">Add new car:</p>
 
-    <form action="/add_new_car" method="post" th:object="${newCar}" th:action="@{/save-new-car}">
+    <form action="/save-new-car" method="post" th:object="${newCar}" th:action="@{/save-new-car}">
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingInput" placeholder="registration_number" th:field="*{registrationNumber}">
             <label for="floatingInput">registration number </label>
@@ -32,7 +40,7 @@
         </div>
 
         <div class="form-floating mb-3">
-            <input type="color" class="form-control" id="color" placeholder="color" th:field="*{color}">
+            <input type="text" class="form-control" id="color" placeholder="color" th:field="*{color}">
             <label for="floatingInput">color - is mandatory</label>
             <span class="errorClass" style="color: orange"  th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></span>
         </div>
@@ -44,11 +52,6 @@
         </div>
         <button type="submit" class="btn btn-light">Add car</button>
     </form>
-
-    <br/>
-    <a href="/" style="color: whitesmoke;">back </a>
-
 </div>
-
 </body>
 </html>

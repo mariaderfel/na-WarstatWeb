@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CarRepository extends JpaRepository<Car, Long> {
     List<Car> findAll();
@@ -21,6 +22,7 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     @Query("update Car c set c.isFixed=true, c.fixedDate=current_date where c.id =:carId")
     void updateIsFixed(@Param("carId") Long carId);
 
+    Optional<Car> findByRegistrationNumberEquals(String registrationNumber);
 
 
 }
